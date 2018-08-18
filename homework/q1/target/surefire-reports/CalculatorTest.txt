@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: CalculatorTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.044 s <<< FAILURE! - in CalculatorTest
+basicExpression1(CalculatorTest)  Time elapsed: 0.01 s  <<< ERROR!
+sun.reflect.generics.reflectiveObjects.NotImplementedException
+	at CalculatorTest.basicExpression1(CalculatorTest.java:23)
+
+basicExpression3(CalculatorTest)  Time elapsed: 0 s  <<< ERROR!
+sun.reflect.generics.reflectiveObjects.NotImplementedException
+	at CalculatorTest.basicExpression3(CalculatorTest.java:34)
+
+basicExpression4(CalculatorTest)  Time elapsed: 0.001 s  <<< ERROR!
+sun.reflect.generics.reflectiveObjects.NotImplementedException
+	at CalculatorTest.basicExpression4(CalculatorTest.java:42)
+
+basicExpression5(CalculatorTest)  Time elapsed: 0.001 s  <<< ERROR!
+sun.reflect.generics.reflectiveObjects.NotImplementedException
+	at CalculatorTest.basicExpression5(CalculatorTest.java:50)
+
+basicExpression6(CalculatorTest)  Time elapsed: 0 s  <<< ERROR!
+sun.reflect.generics.reflectiveObjects.NotImplementedException
+	at CalculatorTest.basicExpression6(CalculatorTest.java:58)
+
+basicExpression7(CalculatorTest)  Time elapsed: 0 s  <<< ERROR!
+sun.reflect.generics.reflectiveObjects.NotImplementedException
+	at CalculatorTest.basicExpression7(CalculatorTest.java:67)
+

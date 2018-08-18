@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="CalculatorTest" time="0.044" tests="6" errors="6" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\git_work\my\home-work\homework\q1\target\test-classes;C:\git_work\my\home-work\homework\q1\target\classes;C:\Users\ml636r\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\ml636r\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Jerusalem"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\ml636r\AppData\Local\Temp\surefire9006706118976476551\surefirebooter4710833812241360022.jar C:\Users\ml636r\AppData\Local\Temp\surefire9006706118976476551 2018-08-11T20-10-25_968-jvmRun1 surefire312288070092301662tmp surefire_04760620522374400328tmp"/>
+    <property name="surefire.test.class.path" value="C:\git_work\my\home-work\homework\q1\target\test-classes;C:\git_work\my\home-work\homework\q1\target\classes;C:\Users\ml636r\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\ml636r\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\ml636r"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_144\jre"/>
+    <property name="basedir" value="C:\git_work\my\home-work\homework\q1"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\ml636r\AppData\Local\Temp\surefire9006706118976476551\surefirebooter4710833812241360022.jar"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_144\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_144-b01"/>
+    <property name="user.name" value="ml636r"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="6.1"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\ml636r\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\ml636r\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2018.1.3"/>
+    <property name="java.version" value="1.8.0_144"/>
+    <property name="user.dir" value="C:\git_work\my\home-work\homework\q1"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\RSA SecurID Token Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\OpenVPN\bin;C:\Program Files (x86)\GitExtensions\;C:\HashiCorp\Vagrant\bin;C:\WINDOWS\_SUPPORT\Tools;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.144-b01"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="basicExpression1" classname="CalculatorTest" time="0.01">
+    <error type="sun.reflect.generics.reflectiveObjects.NotImplementedException">sun.reflect.generics.reflectiveObjects.NotImplementedException
+	at CalculatorTest.basicExpression1(CalculatorTest.java:23)
+</error>
+  </testcase>
+  <testcase name="basicExpression3" classname="CalculatorTest" time="0">
+    <error type="sun.reflect.generics.reflectiveObjects.NotImplementedException">sun.reflect.generics.reflectiveObjects.NotImplementedException
+	at CalculatorTest.basicExpression3(CalculatorTest.java:34)
+</error>
+  </testcase>
+  <testcase name="basicExpression4" classname="CalculatorTest" time="0.001">
+    <error type="sun.reflect.generics.reflectiveObjects.NotImplementedException">sun.reflect.generics.reflectiveObjects.NotImplementedException
+	at CalculatorTest.basicExpression4(CalculatorTest.java:42)
+</error>
+  </testcase>
+  <testcase name="basicExpression5" classname="CalculatorTest" time="0.001">
+    <error type="sun.reflect.generics.reflectiveObjects.NotImplementedException">sun.reflect.generics.reflectiveObjects.NotImplementedException
+	at CalculatorTest.basicExpression5(CalculatorTest.java:50)
+</error>
+  </testcase>
+  <testcase name="basicExpression6" classname="CalculatorTest" time="0">
+    <error type="sun.reflect.generics.reflectiveObjects.NotImplementedException">sun.reflect.generics.reflectiveObjects.NotImplementedException
+	at CalculatorTest.basicExpression6(CalculatorTest.java:58)
+</error>
+  </testcase>
+  <testcase name="basicExpression7" classname="CalculatorTest" time="0">
+    <error type="sun.reflect.generics.reflectiveObjects.NotImplementedException">sun.reflect.generics.reflectiveObjects.NotImplementedException
+	at CalculatorTest.basicExpression7(CalculatorTest.java:67)
+</error>
+  </testcase>
+</testsuite>
