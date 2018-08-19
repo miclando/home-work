@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Calculator{
 
-    Map<Character,Integer> variables;
+    Map<Character,Double> variables;
 
     public Calculator() {
         this.variables = new HashMap<>();

@@ -3,18 +3,18 @@ import java.util.Stack;
 
 public class Expression {
 
-    private final Map<Character, Integer> variables;
+    private final Map<Character, Double> variables;
     private Character var;
     private VarOperation varOperation;
     private String expression;
-    private Integer result;
-    Stack<Integer> numberStack;
-    Stack<Operation> operationStack;
+    private Double result;
+    Stack<Double> numberStack;
+    Stack<Operator> operationStack;
 
 
 
 
-    public Expression(String expression, Map<Character,Integer> variables) {
+    public Expression(String expression, Map<Character,Double> variables) {
         this.expression=expression;
         this.variables=variables;
         this.numberStack=new Stack<>();
@@ -67,31 +67,24 @@ public class Expression {
     }
 
 
+    private Double calculate(int offset) {
 
-
-    private void calculate(int index) {
-        while( index < expression.length()){
-            char character = expression.charAt(index);
-            String temp;
-            if (character == '-'){
-
-            }
-            else if (character == '+'){
-
-            }
-            else if ( character == '*'){
-
-            }
-            else if ( character == '/' ) {
-
-            }
-            else if(Character.isDigit(character)){
-
-            }
-            else if(Character.isLetter(character){
-                
-            }
+        for (int index = offset; index < expression.length(); index++) {
+            index = parseNumber(index);
+            index = parseVariable(index);
+            index = parseOperator(index);
         }
+        while (numberStack.size() >= 2 && this.operationStack.size() >= 1) {
+            double second = numberStack.pop();
+            double first = numberStack.pop();
+            Operator op = this.operationStack.pop();
+            double result = applyOp(first, op, second);
+            numberStack.push(result);
+        }
+        if(numberStack.size() == 1 && this.operationStack.size() == 0){
+            return numberStack.pop();
+        }
+        throw new InvalidExpression("");
     }
 
 
@@ -133,7 +126,7 @@ public class Expression {
         return var;
     }
 
-    public Integer getResult() {
+    public Double getResult() {
         return result;
     }
 
@@ -141,13 +134,6 @@ public class Expression {
         PLUS_PLUS,
         PLUS_EQUALS,
         EQUALS;
-    }
-
-    enum Operation {
-        ADDITION,
-        SUBTRACTION,
-        MULTIPLICATION,
-        DIVISION;
     }
 
     @Override
@@ -162,6 +148,88 @@ public class Expression {
                 ", operationStack=" + operationStack +
                 '}';
     }
+
+
+    private int parseNumber(int index) {
+        index = getNextIndexAfterSpaces(index);
+        Character character = expression.charAt(index);
+        if(Character.isDigit(character)) {
+            StringBuilder sb = new StringBuilder();
+            while (index < expression.length() && Character.isDigit(expression.charAt(index))) {
+                sb.append(expression.charAt(index));
+                index++;
+            }
+        }
+        else if(Character.isLetter(character) ){
+            if(index +2 < expression.length()
+                    && expression.charAt(index+1)=='+'
+                    && expression.charAt(index+2)=='+'){
+                Double varValue = variables.get(character);
+                this.numberStack.push(varValue);
+                variables.put(character,variables.get(character)+1);
+                index+=2;
+            }
+            else{
+                Double varValue = variables.get(character);
+                this.numberStack.push(varValue);
+                index++;
+            }
+        }
+        else if(character== '+' ){
+            if(index +2 < expression.length()
+                    && expression.charAt(index+1)=='+'
+                    && Character.isLetter(expression.charAt(index+2))){
+                character=expression.charAt(index+2);
+                Double varValue = variables.get(character)+1;
+                this.numberStack.push(varValue);
+                variables.put(character,varValue);
+                index+=2;
+            }
+        }
+        index = getNextIndexAfterSpaces(index);
+        return index;
+    }
+
+    private int getNextIndexAfterSpaces(int index) {
+        while (index < expression.length() && Character.isSpaceChar(expression.charAt(index))) {
+            index++;
+        }
+        return index;
+    }
+
+    private int parseVariable(int index) {
+        index = getIndexAfterSpace(index);
+        Character character = expression.charAt(index);
+        if(Character.isLetter(character) ){
+            if(index +2 < expression.length()
+                        && expression.charAt(index+1)=='+'
+                        && expression.charAt(index+2)=='+'){
+                    Double varValue = variables.get(character);
+                    this.numberStack.push(varValue);
+                    variables.put(character,variables.get(character)+1);
+                    index+=2;
+                }
+            else{
+                Double varValue = variables.get(character);
+                this.numberStack.push(varValue);
+                index++;
+            }
+        }
+        else if(character== '+' ){
+            if(index +2 < expression.length()
+                    && expression.charAt(index+1)=='+'
+                    && Character.isLetter(expression.charAt(index+2))){
+                character=expression.charAt(index+2);
+                Double varValue = variables.get(character)+1;
+                this.numberStack.push(varValue);
+                variables.put(character,varValue);
+                index+=2;
+            }
+        }
+        index = getIndexAfterSpace(index);
+        return index;
+    }
+
 
     public static void main(String [] args){
 
@@ -197,5 +265,66 @@ public class Expression {
 
     }
 
+
+    public enum Operator{ADD, SUBTRACT, MULTIPLY, DIVIDE, BLANK}
+
+    private double applyOp(double left, Operator op, double right){
+        switch (op){
+            case ADD: return left + right;
+            case SUBTRACT: return left - right;
+            case MULTIPLY: return left * right;
+            case DIVIDE: return left / right;
+            default: return right;
+        }
+
+    }
+
+    private int priorityOfOperator(Operator op){
+        switch (op){
+            case ADD: return 1;
+            case SUBTRACT: return 1;
+            case MULTIPLY: return 2;
+            case DIVIDE: return 2;
+            case BLANK: return 0;
+        }
+        return 0;
+    }
+
+    private int parseOperator( int index){
+        if(index < this.expression.length()) {
+            char character = this.expression.charAt(index);
+            Operator operator=null;
+            switch (character) {
+                case '+':
+                    operator = Operator.ADD;
+                    index++;
+                case '-':
+                    operator = Operator.SUBTRACT;
+                    index++;
+                case '*':
+                    operator = Operator.MULTIPLY;
+                    index++;
+                case '/':
+                    operator = Operator.DIVIDE;
+                    index++;
+            }
+
+            while (numberStack.size() >= 2 && this.operationStack.size() >= 1) {
+                if (priorityOfOperator(operator) <= priorityOfOperator(this.operationStack.peek())) {
+                    double second = numberStack.pop();
+                    double first = numberStack.pop();
+                    Operator op = this.operationStack.pop();
+                    double result = applyOp(first, op, second);
+                    numberStack.push(result);
+                } else {
+                    break;
+                }
+            }
+        }
+        return index;
+
+
+
+    }
 
 }
