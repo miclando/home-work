@@ -43,6 +43,7 @@ public class Expression {
         index=getIndexAfterSpace(index);
         character = expression.charAt(index);
         if(character == '='){
+            index++;
             this.varOperation= VarOperation.EQUALS;
         }
         else if (character == '+' ){
@@ -51,6 +52,8 @@ public class Expression {
                 character = expression.charAt(index);
                 if(character == '+' ){
                     this.varOperation= VarOperation.PLUS_PLUS;
+                    Double varValue = variables.get(var);
+
                 }
                 else if (character == '=' ){
                     this.varOperation= VarOperation.PLUS_EQUALS;
@@ -154,6 +157,7 @@ public class Expression {
         index = getNextIndexAfterSpaces(index);
         Character character = expression.charAt(index);
         if(Character.isDigit(character)) {
+            index++;
             StringBuilder sb = new StringBuilder();
             while (index < expression.length() && Character.isDigit(expression.charAt(index))) {
                 sb.append(expression.charAt(index));
@@ -237,18 +241,18 @@ public class Expression {
         e.evaluate();
         System.out.println(e);
 
-        e = new Expression("i+=", null);
+        e = new Expression("i+=1", null);
         e.evaluate();
         System.out.println(e);
 
-        e = new Expression("i +=", null);
+        e = new Expression("i += 1", null);
         e.evaluate();
         System.out.println(e);
-        e = new Expression("i +=", null);
+        e = new Expression("i +=1+1", null);
         e.evaluate();
         System.out.println(e);
 
-        e = new Expression("i =", null);
+        e = new Expression("i =1 +1 ", null);
         e.evaluate();
         System.out.println(e);
         e = new Expression("i=", null);
@@ -298,15 +302,22 @@ public class Expression {
                 case '+':
                     operator = Operator.ADD;
                     index++;
+                    break;
                 case '-':
                     operator = Operator.SUBTRACT;
                     index++;
+                    break;
                 case '*':
                     operator = Operator.MULTIPLY;
                     index++;
+                    break;
                 case '/':
                     operator = Operator.DIVIDE;
                     index++;
+                    break;
+                default:
+                    throw new RuntimeException("unsuported operator");
+
             }
 
             while (numberStack.size() >= 2 && this.operationStack.size() >= 1) {
