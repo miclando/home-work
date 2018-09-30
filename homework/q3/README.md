@@ -12,7 +12,7 @@ approach.
 first it looks like the threads are never started.
 the problem with the solution is that the data field is modified by multiple threads.
 as a result the modification to the data can be incorrect the values can be overridden and changes can be lost.
-example on thread is making a modification in the mine while another thread read the value and is modifying it as well.
+example one thread is making a modification in the mine while another thread read the value and is modifying it as well.
 when they both complete the first thread writs the value but the value used by the second thread, the change was not applied and when thread two places the changed value 
 back data is lost.
 in order to avoid this we can use one of the flowing approaches.

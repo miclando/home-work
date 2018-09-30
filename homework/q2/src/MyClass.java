@@ -9,12 +9,12 @@ import java.util.Objects;
  * the equls compares only one item
  * hash code was not implamented
  * fixing constructor to eliminate null values
- * to string prints just part of the object
+ * tostring prints just part of the object
  * the to string use string literales
- * removestring here ther is a bug when you dlete an iteam you change the index of the iteam aftrr it
+ * removestring here there is a bug when you dlete an iteam you change the index of the iteam aftrr it
  * as a result you will skip some items.
- * to fix using remove if wcich will iterate over the colection and call remove.
- * if the list is alinked list thsi will be done in o(n)
+ * to fix using removeif wcich will iterate over the colection and call remove.
+ * if the list is a linked list this will be done in o(n)
  * containsNumber to speed up the method we can change the list to map to make it easier to fid matches.
  *
  */
