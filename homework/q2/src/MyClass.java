@@ -5,17 +5,17 @@ import java.util.Objects;
 
 
 /**
- * issues
- * the equls compares only one item
- * hash code was not implamented
- * fixing constructor to eliminate null values
- * tostring prints just part of the object
- * the to string use string literales
- * removestring here there is a bug when you dlete an iteam you change the index of the iteam aftrr it
- * as a result you will skip some items.
- * to fix using removeif wcich will iterate over the colection and call remove.
- * if the list is a linked list this will be done in o(n)
- * containsNumber to speed up the method we can change the list to map to make it easier to fid matches.
+ * issues:
+ * 1. the equals compares only one item
+ * 2. hash code was not implemented
+ * 3. fixing constructor to eliminate null values
+ * 4. tostring prints just part of the object
+ * 5. the tostring use string literals
+ * 6. removestring here there is a bug when you delete an item you change the index of the item after it
+ *    as a result you will skip some items.
+ *    to fix this i add the use of removeif wcich will iterate over the collection and call remove.
+ * 7. if the list is a linked list this will be done in o(n)
+ * 8. containsNumber to speed up the method we can change the list to map to make it easier to fid matches.
  *
  */
 public class MyClass
@@ -73,7 +73,7 @@ public class MyClass
     }
 
     public void removeString(String str) {
-        m_strings.removeIf((s)->str.equals(str));
+        m_strings.removeIf((s)->s.equals(str));
     }
 
     public boolean containsNumber(long number) {
